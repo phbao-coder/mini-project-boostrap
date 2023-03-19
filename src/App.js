@@ -8,33 +8,20 @@ import Post from './components/Post';
 import Todos from './components/Todos';
 // css
 import './App.css';
-
-const tabs = ['posts', 'comments', 'todos'];
+import { routes } from './routes';
+import { Route, Routes } from 'react-router-dom';
+import Header from './components/Header';
 
 function App() {
-    const [tab, setTab] = useState('posts');
-
-    const handleChangeTab = (value) => {
-        setTab(value);
-    };
-
     return (
         <div className="container">
-            <Breadcrumb>
-                {tabs.map((item, index) => (
-                    <Breadcrumb.Item
-                        key={index}
-                        onClick={() => handleChangeTab(item)}
-                        variant="primary"
-                    >
-                        {item}
-                    </Breadcrumb.Item>
-                ))}
-            </Breadcrumb>
-            <div className="">
-                {tab === 'posts' && <Post />}
-                {tab === 'comments' && <Comments />}
-                {tab === 'todos' && <Todos />}
+            <Header />
+            <div>
+                <Routes>
+                    {routes.map((route, index) => (
+                        <Route key={index} path={route.path} element={route.element} />
+                    ))}
+                </Routes>
             </div>
         </div>
     );

@@ -4,21 +4,27 @@
     box-sizing: border-box;
 }
 
-.button-tab {
-    margin: 10px 0;
-    display: flex;
-    gap: 10px;
-    width: 100%;
+::-webkit-scrollbar {
+    display: none;
 }
 
+/* Header */
+.nav-a {
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+/* App */
 .container {
     margin-bottom: 10px;
 }
 
+/* Comments */
 .pagination {
     margin-top: 10px;
 }
 
+/* Todos */
 .todo-container {
     display: flex;
     flex-direction: column;
