@@ -1,25 +1,39 @@
-import logo from './logo.svg';
+// libraries
+import { useState } from 'react';
+import { Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+// component
+import Comments from './components/Comment';
+import Post from './components/Post';
+import Todos from './components/Todos';
+// css
 import './App.css';
 
+const tabs = ['posts', 'comments', 'todos'];
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [tab, setTab] = useState('posts');
+
+    const handleChangeTab = (value) => {
+        setTab(value);
+    };
+
+    return (
+        <div className="container">
+            <div className="button-tab">
+                {tabs.map((item, index) => (
+                    <Button key={index} onClick={() => handleChangeTab(item)} variant="primary">
+                        {item}
+                    </Button>
+                ))}
+            </div>
+            <div className="">
+                {tab === 'posts' && <Post />}
+                {tab === 'comments' && <Comments />}
+                {tab === 'todos' && <Todos />}
+            </div>
+        </div>
+    );
 }
 
 export default App;
