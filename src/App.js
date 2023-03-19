@@ -1,6 +1,6 @@
 // libraries
 import { useState } from 'react';
-import { Button } from 'react-bootstrap';
+import { Breadcrumb } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // component
 import Comments from './components/Comment';
@@ -20,13 +20,17 @@ function App() {
 
     return (
         <div className="container">
-            <div className="button-tab">
+            <Breadcrumb>
                 {tabs.map((item, index) => (
-                    <Button key={index} onClick={() => handleChangeTab(item)} variant="primary">
+                    <Breadcrumb.Item
+                        key={index}
+                        onClick={() => handleChangeTab(item)}
+                        variant="primary"
+                    >
                         {item}
-                    </Button>
+                    </Breadcrumb.Item>
                 ))}
-            </div>
+            </Breadcrumb>
             <div className="">
                 {tab === 'posts' && <Post />}
                 {tab === 'comments' && <Comments />}
