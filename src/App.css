@@ -18,3 +18,14 @@
 .pagination {
     margin-top: 10px;
 }
+
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+}
